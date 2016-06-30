@@ -1,0 +1,52 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Banken.master.cs" Inherits="Le_Banc_Fiffle.Banken" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+ <meta charset="utf-8" name="viewport" content="width=device-width, initial scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <link rel="stylesheet" type="text/css" href="responsiv.css" media="screen and (max-width: 900px)" />
+    <title>JE-bank</title>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div class="container">
+    <form id="form1" runat="server">
+    <div class="header">
+      <a href="index.aspx"><asp:Label ID="logo" runat="server" Text="Le Banc Fiffle"></asp:Label></a>
+    </div>
+
+             <div class="header">
+                     <h1> JE-Bank</h1>
+                     <h4> Den nära banken</h4>
+             </div>
+                
+             <div class="nav">
+                   <ul class="clearfix">
+                        <li><a href="index.aspx">Hem</a></li>
+                        <li><a href="om.html">Om JE-Bank</a></li>
+                        <li><a href="admin.html">Admin</a></li>
+                        <li><a href="aktier.aspx">Aktier</a></li>
+	                    <li><a href="kompetensportalen.html">Kompetensportalen</a></li>
+                        <li><a href="kontaktuppgifter.html">Kontaktuppgifter</a></li>
+                        <li><a href="personal.html">Personal</a></li>
+                   </ul>
+              </div>
+   
+    
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+     <div class="footer">
+         <p title="© 2016 Le Banc Fiffle AB (publ)">© 2016 Le Banc Fiffle AB (publ) Jill Lindqvist och Camilla Hoff</p>
+    </div>
+    </form>
+    </div>
+    
+</body>
+</html>

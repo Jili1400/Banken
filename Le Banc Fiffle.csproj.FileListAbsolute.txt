@@ -1,0 +1,6 @@
+c:\users\jillsan\documents\visual studio 2013\Projects\Le Banc Fiffle\Le Banc Fiffle\bin\Le Banc Fiffle.dll.config
+c:\users\jillsan\documents\visual studio 2013\Projects\Le Banc Fiffle\Le Banc Fiffle\bin\Le Banc Fiffle.dll
+c:\users\jillsan\documents\visual studio 2013\Projects\Le Banc Fiffle\Le Banc Fiffle\bin\Le Banc Fiffle.pdb
+c:\users\jillsan\documents\visual studio 2013\Projects\Le Banc Fiffle\Le Banc Fiffle\obj\Debug\Le Banc Fiffle.csprojResolveAssemblyReference.cache
+c:\users\jillsan\documents\visual studio 2013\Projects\Le Banc Fiffle\Le Banc Fiffle\obj\Debug\Le Banc Fiffle.dll
+c:\users\jillsan\documents\visual studio 2013\Projects\Le Banc Fiffle\Le Banc Fiffle\obj\Debug\Le Banc Fiffle.pdb
