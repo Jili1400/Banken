@@ -10,9 +10,9 @@
 
           <div class="sektion sektion-ett mobil">
              <img src="/Images/MelkerochEbbabadar.jpg" alt="2 barn badar" width="100%" height="auto" /> 
-              <h2>Om JE-bank</h2>
+              <h2>Om Le Banc Fiffle</h2>
                    <p>
-                   JE-banken är Skandinaviens största bankkoncern. 
+                   Le Banc Fiffle är Skandinaviens största bankkoncern. 
                    <br />Vi förvaltar 10,7 miljoner kunders privata tillgångar och 
                    <br />är finansiell rådgivare till 455 000 företag.  
                    <br />Vi finns i alla länder i Skandinavien. Vi är 22 356 anställda 
@@ -26,7 +26,7 @@
              <img src="/Images/EbbaochMelkerakernorg.jpg" alt="Ebba och Melker på åkern" width="100%" height="auto" />
                <h2>Vi ger tillbaka till naturen</h2>
                    <p>
-                   JE-banken är en stor bank som naturligtvis vill ge tillbaka  
+                   Le Banc Fiffle är en stor bank som naturligtvis vill ge tillbaka  
                    <br />till vår moder natur. Vi skänker årligen mer än 10% av  
                    <br /> vår vinst till energifrämjande projekt. 
                    <br />
@@ -39,7 +39,7 @@
              <img src="/Images/Ebbaiappletree.jpg" alt="en bild på en hund" width="100%" height="auto" />
                <h2>Spara för framtiden</h2>
                    <p title="Spara för framtiden">
-                   På JE-Bank tänker vi på sparandet för den kommande generationen.<br />
+                   På Le Banc Fiffle tänker vi på sparandet för den kommande generationen.<br />
                    Vi har därför satt samman olika sparpaket för att göra det enkelt och säkert att spara till våra guldklimpar.
                    </p>
              </div>
