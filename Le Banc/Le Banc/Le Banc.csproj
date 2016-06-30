@@ -57,6 +57,19 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CSS\admin.css" />
+    <Content Include="CSS\index.css" />
+    <Content Include="CSS\personal.css" />
+    <Content Include="CSS\resp.css" />
+    <Content Include="CSS\responsiv.css" />
+    <Content Include="CSS\responsivorg.css" />
+    <Content Include="Images\Ebbaiappletree.jpg" />
+    <Content Include="Images\EbbaochMelkerakernorg.jpg" />
+    <Content Include="Images\goldenstatue.jpg" />
+    <Content Include="Images\havet.jpg" />
+    <Content Include="Images\JillLindqvist.jpg" />
+    <Content Include="Images\MelkerochEbbabadar.jpg" />
+    <Content Include="Images\temple.jpg" />
     <Content Include="Web.config" />
     <Content Include="index.aspx" />
     <Content Include="kompetensportalen.aspx" />
@@ -94,6 +107,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

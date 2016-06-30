@@ -1,0 +1,70 @@
+﻿body {
+
+@media screen and (max-width: 750px) {
+
+.div nav ul li{
+float: none;
+clearfix: both;
+width: 50%;
+border-bottom: 1px solid #808080;
+
+}
+.sektioner{
+    width: 47%;
+}
+
+.sektion-andra{
+margin: 0;
+}
+
+
+.sektion-tredje{
+margin: 0;
+}
+
+.sektion-personal1-2{
+margin: 0;
+}
+
+.sektion-personal2{
+margin:0;
+}
+
+.sektion-personal2-2{
+float: none;
+clearfix: both; 
+width: auto;
+padding-top: 20px 0 0 0;}
+
+
+}
+}
+
+@media screen and (max-width: 320px){
+.div nav lu li{
+width: 100%;
+font-size: 85%;
+}
+
+
+.div mobil{
+width: auto;
+float: none;
+margin-right: 0;
+
+}
+
+.hide mobile{
+display: none;
+}
+}
+
+
+
+.clearfix:before  {content: "", display: table;} 
+.clearfix:after {content: "", display: table;}
+.clearfix:after {clear: both;}
+.clearfix {*zoom: 1;}
+.clearfix {overflow: auto;}
+
+}

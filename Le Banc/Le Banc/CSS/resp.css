@@ -1,0 +1,89 @@
+﻿@media only screen and (min-width: 150px) and (max-width: 600px)
+{
+
+.body {
+width: 90%;
+font-size: 95%;
+}
+
+.mainheader img {
+width: 100%;
+}
+
+
+.mainheader nav{ 
+}
+
+.mainheader nav ul {
+padding-left: 2%;
+} 
+
+.mainheader nav ul li {
+
+width: 100%;
+text-align: center;
+}
+
+.mainheader nav a:link, .mainheader nav a:visited {
+  padding: 10px 10px; 
+  height: 20px;
+  display: block;
+}
+
+.content {
+width: 100%;
+float: left;
+margin.top: 2%;
+}
+
+.topcontent {
+padding: 1% 2% 1.5% 2%;
+margin-top: 4%;
+}
+
+.bottom-content {
+padding: 1.5% 2%;
+margin-top: 3%;
+}
+
+.post-info {
+display: none;
+}
+
+#h3 {
+width: 100%;
+}
+
+
+.top-side, .middle-side, .bottom-side{
+width: 98%;
+float: left;
+margin: 1.5% 0% 0% 0%;
+padding: 0% 4%;
+}
+
+.mainfooter {
+width: 100%;
+float: left;
+margin: 2% 0;
+background-color: #666;
+color: #FFF;
+}
+
+.mainfooter p {
+
+width: 92%;
+margin: 2% auto;
+}
+
+.clear:before  {content: "", display: table;} 
+.clear:after {content: "", display: table;}
+.clear:after {clear: both;}
+.clear {*zoom: 1;}
+.clear {overflow: auto;}
+
+
+
+
+}
+
