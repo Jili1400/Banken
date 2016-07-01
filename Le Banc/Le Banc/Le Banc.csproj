@@ -75,6 +75,7 @@
     <Content Include="kompetensportalen.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Answer.cs" />
     <Compile Include="LeBanc.Master.cs">
       <DependentUpon>LeBanc.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -97,6 +98,8 @@
     <Compile Include="kompetensportalen.aspx.designer.cs">
       <DependentUpon>kompetensportalen.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Question.cs" />
+    <Compile Include="RightAnswer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="LeBanc.Master" />
