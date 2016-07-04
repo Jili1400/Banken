@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+
+<test>
+
+  <testquestion id="1">
+    <nr>1</nr>
+    <question>Vilken produkt är den viktigaste?</question>
+    <amountofanswers>2</amountofanswers>
+    <answer>Kaffemaskinen</answer>
+    <answer>Kakburken</answer>
+    <rightanswer>Kaffemaskinen</rightanswer>
+    <group>Produkter och hantering</group>
+    <amountofrightanswers>1</amountofrightanswers>
+  </testquestion>
+
+  <testquestion id="2">
+    <nr>2</nr>
+    <question>Vilka valutor är bäst att använda?</question>
+    <amountofanswers>3</amountofanswers>
+    <answer1>dollar</answer1>
+    <answer2>euro</answer2>
+    <answer3>nkr</answer3>
+    <rightanswer1>dollar</rightanswer1>
+    <rightanswer2>euro</rightanswer2>
+    <group>Ekonomi</group>
+    <amountofrightanswers>2</amountofrightanswers>
+  </testquestion>
+
+  <testquestion id="3">
+    <nr>3</nr>
+    <question>Vilken regler gäller vid sakpande av konton?</question>
+    <amountofanswers>3</amountofanswers>
+    <answer1>regel1</answer1>
+    <answer2>regel2</answer2>
+    <answer3>regel3</answer3>
+    <rightanswer1>regel1</rightanswer1>
+    <rightanswer2>regel3</rightanswer2>
+    <amountofrightanswers>2</amountofrightanswers>
+    <group>Ekonomi</group>
+  </testquestion>
+
+</test>
+
+

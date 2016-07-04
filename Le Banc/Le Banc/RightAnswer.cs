@@ -7,7 +7,7 @@ namespace Le_Banc
 {
     public class RightAnswer
     {
-        public string RightAnswer { get; set; }
+        public string RattSvar { get; set; }
        
     }
 }

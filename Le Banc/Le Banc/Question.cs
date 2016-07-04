@@ -10,7 +10,7 @@ namespace Le_Banc
         public int Id { get; set; }
         public int AmountOfAnswers { get; set; }
         public int AmountOfRightAnswers { get; set; }
-        public string Question { get; set; }
+        public string TheQuestion { get; set; }
         public string Group { get; set; }
 
         public List<Answer> ListAnswer { get; set; }

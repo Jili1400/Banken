@@ -7,6 +7,6 @@ namespace Le_Banc
 {
     public class Answer
     {
-        public string Answer { get; set; }
+        public string Svar { get; set; }
     }
 }
