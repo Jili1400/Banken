@@ -59,7 +59,7 @@ namespace Le_Banc
                     }
                     //if (question.Group=="")  //här behöver vi skriva in det tredje värdet!!
                     //{
-                        
+                     //   rlaklötaeklk
                     //}
                 }
                 
