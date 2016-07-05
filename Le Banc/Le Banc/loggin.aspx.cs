@@ -16,6 +16,7 @@ namespace Le_Banc
 
         protected void btnLoggin_Click(object sender, EventArgs e)
         {
+            
             if (txbId.Text == string.Empty)
             {
                 lblErrorMessage.Text = "Du måste ange Användarnamn";
@@ -26,6 +27,18 @@ namespace Le_Banc
                 lblErrorMessage.Text = "Du måste ange Lösenord";
                 return;
             }
+            //Session["Id"] = //Id från inloggad från databasen
+            ////om staff bool redirect till admin else till komp.port
+            //if ()
+            //{
+            //  Response.Redirect("~/admin.aspx");
+            //}
+            //else
+            //{
+            //  Response.Redirect("~/kompetensportalen.aspx");
+            //}
+
+
         }
     }
 }
