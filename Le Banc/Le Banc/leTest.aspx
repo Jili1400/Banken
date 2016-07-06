@@ -14,6 +14,8 @@
 
 
         </asp:PlaceHolder>
+
+        <asp:Button ID="ButtonLamnaIn" runat="server" Text="Lämna in" OnClick="ButtonLamnaIn_Click" />
     </div>
     </form>
 </body>

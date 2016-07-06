@@ -173,6 +173,17 @@ namespace Le_Banc
             return listRightAnswers;
         }
 
+        //protected void Button1_Click(object sender, EventArgs e)
+        //{
+
+        //}
+
+        protected void ButtonLamnaIn_Click(object sender, EventArgs e)
+        {
+            //RadioButton radiobutton = new RadioButton();
+            //string test = PlaceHolderQuestions.
+        }
+
         //metod där jag hämtar hem alla frågor från xml
         //private List<Question> catchQuestionFromXml()
         //{
