@@ -17,11 +17,11 @@
     <nr>2</nr>
     <question>Vilka valutor är bäst att använda?</question>
     <amountofanswers>3</amountofanswers>
-    <answer1>dollar</answer1>
-    <answer2>euro</answer2>
-    <answer3>nkr</answer3>
-    <rightanswer1>dollar</rightanswer1>
-    <rightanswer2>euro</rightanswer2>
+    <answer>dollar</answer>
+    <answer>euro</answer>
+    <answer>nkr</answer>
+    <rightanswer>dollar</rightanswer>
+    <rightanswer>euro</rightanswer>
     <group>Ekonomi</group>
     <amountofrightanswers>2</amountofrightanswers>
   </testquestion>
@@ -30,11 +30,11 @@
     <nr>3</nr>
     <question>Vilken regler gäller vid sakpande av konton?</question>
     <amountofanswers>3</amountofanswers>
-    <answer1>regel1</answer1>
-    <answer2>regel2</answer2>
-    <answer3>regel3</answer3>
-    <rightanswer1>regel1</rightanswer1>
-    <rightanswer2>regel3</rightanswer2>
+    <answer>regel1</answer>
+    <answer>regel2</answer>
+    <answer>regel3</answer>
+    <rightanswer>regel1</rightanswer>
+    <rightanswer>regel3</rightanswer>
     <amountofrightanswers>2</amountofrightanswers>
     <group>Ekonomi</group>
   </testquestion>

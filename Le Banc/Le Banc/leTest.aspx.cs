@@ -12,7 +12,7 @@ namespace Le_Banc
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           BuildingTest();
         }
 
 
@@ -29,7 +29,7 @@ namespace Le_Banc
 
                 if (thisTest.Testnr == 1) //här är testnumret 
                 {
-                    string radNrQuestion = "";
+                    //string radNrQuestion = "";
                    // string radAnswer = "";
                     int nr = 0;
 
@@ -38,18 +38,32 @@ namespace Le_Banc
                         foreach (Question item in listQuestion)
                         {
                             nr++;
-                            radNrQuestion += "<tr><td>" + nr + "</td><td>" + question.TheQuestion + "</td></tr>";
+                            
+                            Label labelquestion = new Label();
+                            labelquestion.Text=item.TheQuestion;
+
+                            PlaceHolderQuestions.Controls.Add(labelquestion);
+                            PlaceHolderQuestions.Controls.Add(new LiteralControl("<br/>"));
+
+                            //radNrQuestion += "<tr><td>" + nr + "</td><td>" + question.TheQuestion + "</td></tr>";
                             foreach (Answer answer in question.ListAnswer)
                             {
-                                radNrQuestion += "<tr><td>" + answer + "</td><td>";
+                                RadioButton radiobutton = new RadioButton();
+                                radiobutton.Text=answer.ToString();
+                                radiobutton.ID=nr.ToString();
+                                
+                                //radNrQuestion += "<tr><td>" + answer + "</td><td>";
+                              PlaceHolderQuestions.Controls.Add(radiobutton);
+                              PlaceHolderQuestions.Controls.Add(new LiteralControl("<br/>"));
                             }
                             
+                            
 
-                            thisTest.Date = DateTime.Now;
-                            thisTest.ListQuestion.Add(question);
+                            //thisTest.Date = DateTime.Now;
+                            //thisTest.ListQuestion.Add(question);
                             //listThisTest.Add(question);
                         }
-                        Label1.Text = "<table>" + radNrQuestion + "</table>";
+                        //Label1.Text = "<table>" + radNrQuestion + "</table>";
                         Label1.Visible = true;
 
                     }
@@ -65,6 +79,9 @@ namespace Le_Banc
                 
             }  
         }
+
+
+        //public static Control findControl(Control );
 
         //metod som fyller på vilket testnummer det är från databasen
         private int GetTestNr()
@@ -94,7 +111,7 @@ namespace Le_Banc
                 question.TheQuestion = nod["question"].InnerText;
                 question.Group = nod["group"].InnerText;
                 question.AmountOfAnswers = Convert.ToInt32(nod["amountofanswers"].InnerText);
-                question.AmountOfRightAnswers = Convert.ToInt32(nod["amountofrightanswers"]);
+                question.AmountOfRightAnswers = Convert.ToInt32(nod["amountofrightanswers"].InnerText);
 
                 question.ListAnswer = FillAnswersFromXmlTest();
                 question.ListRightAnswer = FillRightAnserFromXmlTest();
@@ -102,6 +119,7 @@ namespace Le_Banc
                 listQuestions.Add(question);
 
                 //Session["listQuestion"] = listQuestions;
+                
                 
             }
 
