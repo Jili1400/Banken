@@ -49,7 +49,7 @@ namespace Le_Banc
                             foreach (Answer answer in question.ListAnswer)
                             {
                                 RadioButton radiobutton = new RadioButton();
-                                radiobutton.Text=answer.ToString();
+                                radiobutton.Text = answer.Svar;
                                 radiobutton.ID=nr.ToString();
                                 
                                 //radNrQuestion += "<tr><td>" + answer + "</td><td>";
@@ -113,7 +113,7 @@ namespace Le_Banc
                 question.AmountOfAnswers = Convert.ToInt32(nod["amountofanswers"].InnerText);
                 question.AmountOfRightAnswers = Convert.ToInt32(nod["amountofrightanswers"].InnerText);
 
-                question.ListAnswer = FillAnswersFromXmlTest();
+                question.ListAnswer = FillAnswersFromXmlTest(question.Id);
                 question.ListRightAnswer = FillRightAnserFromXmlTest();
 
                 listQuestions.Add(question);
@@ -128,7 +128,7 @@ namespace Le_Banc
 
 
         //metod som fyller answers från test.xml
-        private List<Answer> FillAnswersFromXmlTest()
+        private List<Answer> FillAnswersFromXmlTest(int questionId)
         {
             string xmlfil = Server.MapPath("test.xml");
             XmlDocument xml = new XmlDocument();
@@ -140,11 +140,15 @@ namespace Le_Banc
         
             foreach (XmlNode nod in lista)
             {
-                Answer answer = new Answer();
+                if (questionId== Convert.ToInt32(nod.Attributes["id"].Value))
+                {
+		            Answer answer = new Answer();
 
-                answer.Svar = nod["answer"].InnerText;
+                    answer.Svar = nod["answer"].InnerText;
 
-                listAnswers.Add(answer);
+                    listAnswers.Add(answer);
+	            }
+               
            }
            
             return listAnswers;
