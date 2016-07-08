@@ -128,26 +128,46 @@ namespace Le_Banc
 
 
         //metod som fyller answers från test.xml
-        private List<Answer> FillAnswersFromXmlTest(int questionId)
+        private List<Answer> FillAnswersFromXmlTest(int questionId)  //får just nu bara ut frågor som gäller id1, men tar jag bort ifsatsen försvinner alla answers.
         {
             string xmlfil = Server.MapPath("test.xml");
             XmlDocument xml = new XmlDocument();
 
             xml.Load(xmlfil);
 
-            XmlNodeList lista = xml.SelectNodes("test/testquestion");
+            XmlNodeList xmlAnswers = xml.SelectNodes("test/testquestion/answers");
+            XmlNodeList xmlAnswer = xml.SelectNodes("test/testquestion/answers/answer");
             List<Answer> listAnswers = new List<Answer>();
-        
-            foreach (XmlNode nod in lista)
+            //int questionId2 = questionId;
+        int no = 0;
+            foreach (XmlNode answers in xmlAnswers)
             {
-                if (questionId== Convert.ToInt32(nod.Attributes["id"].Value))
+                foreach (XmlNode svaret in xmlAnswer)
                 {
+                     int check = Convert.ToInt32(answers.ParentNode.Attributes["id"].Value);
+                
+                if (questionId== check)
+               // while (check==questionId)
+                 //if (questionId == Convert.ToInt32(nod.Attributes["id"].Value))
+                {   
+                    no++;
 		            Answer answer = new Answer();
-
-                    answer.Svar = nod["answer"].InnerText;
-
+                    try
+                    {
+                         answer.Svar = answers["answer"+no].InnerText;
+                    }
+                    catch (Exception)
+                    {
+                        //throw;
+                        
+                    }    
+                       
+                    
+                    
                     listAnswers.Add(answer);
-	            }
+                }
+                }
+               
                
            }
            
