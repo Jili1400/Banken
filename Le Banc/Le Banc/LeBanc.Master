@@ -22,7 +22,7 @@
                    <ul class="clearfix">
                         <li><a href="index.aspx">Hem</a></li>
                         <li><a href="om.html">Om JE-Bank</a></li>
-                        <li><a href="admin.html">Admin</a></li>
+                        <li><a href="admin.aspx">Admin</a></li>
                         <li><a href="aktier.aspx">Aktier</a></li>
 	                    <li><a href="kompetensportalen.aspx">Kompetensportalen</a></li>
                         <li><a href="kontaktuppgifter.html">Kontaktuppgifter</a></li>

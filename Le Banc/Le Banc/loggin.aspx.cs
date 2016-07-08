@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 
 namespace Le_Banc
 {
@@ -17,16 +18,16 @@ namespace Le_Banc
         protected void btnLoggin_Click(object sender, EventArgs e)
         {
             
-            if (txbId.Text == string.Empty)
-            {
-                lblErrorMessage.Text = "Du måste ange Användarnamn";
-                return;
-            }
-            if (txbPassword.Text == string.Empty)
-            {
-                lblErrorMessage.Text = "Du måste ange Lösenord";
-                return;
-            }
+            //if (txbId.Text == string.Empty)
+            //{
+            //    lblErrorMessage.Text = "Du måste ange Användarnamn";
+            //    return;
+            //}
+            //if (txbPassword.Text == string.Empty)
+            //{
+            //    lblErrorMessage.Text = "Du måste ange Lösenord";
+            //    return;
+            //}
             //Session["Id"] = //Id från inloggad från databasen
             ////om staff bool redirect till admin else till komp.port
             //if ()
