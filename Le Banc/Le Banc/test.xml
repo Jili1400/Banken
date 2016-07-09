@@ -7,8 +7,8 @@
     <question>Vilken produkt är den viktigaste?</question>
     <amountofanswers>2</amountofanswers>
     <answers>
-      <answer1>Kaffemaskinen</answer1>
-      <answer2>Kakburken</answer2>
+      <answer>Kaffemaskinen</answer>
+      <answer>Kakburken</answer>
     </answers>    
     <rightanswer>Kaffemaskinen</rightanswer>
     <group>Produkter och hantering</group>
@@ -20,9 +20,9 @@
     <question>Vilka valutor är bäst att använda?</question>
     <amountofanswers>3</amountofanswers>
     <answers>
-      <answer1>dollar</answer1>
-      <answer2>euro</answer2>
-      <answer3>nkr</answer3>
+      <answer>dollar</answer>
+      <answer>euro</answer>
+      <answer>nkr</answer>
     </answers>    
     <rightanswer>dollar</rightanswer>
     <rightanswer>euro</rightanswer>
@@ -35,9 +35,9 @@
     <question>Vilken regler gäller vid sakpande av konton?</question>
     <amountofanswers>3</amountofanswers>
     <answers>
-       <answer1>regel1</answer1>
-       <answer2>regel2</answer2>
-       <answer3>regel3</answer3>
+       <answer>regel1</answer>
+       <answer>regel2</answer>
+       <answer>regel3</answer>
     </answers>
     <rightanswer>regel1</rightanswer>
     <rightanswer>regel3</rightanswer>

@@ -23,33 +23,38 @@ namespace Le_Banc
             List<Question> listQuestion = FillQuestionFromXmlTest();
             List<TheTest> listThisTest = new List<TheTest>();
             
-            foreach (Question question in listQuestion)
-            {
-                thisTest.Testnr = GetTestNr();
+            //foreach (Question question in listQuestion)
+            //{
+            //    thisTest.Testnr = GetTestNr();
 
-                if (thisTest.Testnr == 1) //här är testnumret 
-                {
-                    //string radNrQuestion = "";
-                   // string radAnswer = "";
-                    int nr = 0;
+            //    if (thisTest.Testnr == 1) //här är testnumret 
+            //    {
+            //        string radNrQuestion = "";
+            //        string radAnswer = "";
+                   int nr = 0;
 
-                    if (question.Group=="Produkter och hantering")
-                    {  
+                    //if (question.Group=="Produkter och hantering")
+                    //{  
                         foreach (Question item in listQuestion)
                         {
                             nr++;
                             
                             Label labelquestion = new Label();
                             labelquestion.Text=item.TheQuestion;
+                            Label labelGroup = new Label();
+                            labelGroup.Text = item.Group;
 
                             PlaceHolderQuestions.Controls.Add(labelquestion);
                             PlaceHolderQuestions.Controls.Add(new LiteralControl("<br/>"));
+                            PlaceHolderQuestions.Controls.Add(labelGroup);
+                            PlaceHolderQuestions.Controls.Add(new LiteralControl("<br/>"));
+                            PlaceHolderQuestions.Controls.Add(new LiteralControl("<br/>"));
 
                             //radNrQuestion += "<tr><td>" + nr + "</td><td>" + question.TheQuestion + "</td></tr>";
-                            foreach (Answer answer in question.ListAnswer)
+                            foreach (Answer svaret in item.ListAnswer)
                             {
                                 RadioButton radiobutton = new RadioButton();
-                                radiobutton.Text = answer.Svar;
+                                radiobutton.Text = svaret.Svar;
                                 radiobutton.ID=nr.ToString();
                                 
                                 //radNrQuestion += "<tr><td>" + answer + "</td><td>";
@@ -62,22 +67,22 @@ namespace Le_Banc
                             //thisTest.Date = DateTime.Now;
                             //thisTest.ListQuestion.Add(question);
                             //listThisTest.Add(question);
-                        }
+                        //}
                         //Label1.Text = "<table>" + radNrQuestion + "</table>";
                         Label1.Visible = true;
 
-                    }
-                    if (question.Group=="Ekonomi")
-                    {
+                    //}
+                    //if (question.Group=="Ekonomi")
+                    //{
                         
-                    }
+                    //}
                     //if (question.Group=="")  //här behöver vi skriva in det tredje värdet!!
                     //{
                      //   rlaklötaeklk
                     //}
                 }
                 
-            }  
+            //}  
         }
 
 
@@ -113,7 +118,15 @@ namespace Le_Banc
                 question.AmountOfAnswers = Convert.ToInt32(nod["amountofanswers"].InnerText);
                 question.AmountOfRightAnswers = Convert.ToInt32(nod["amountofrightanswers"].InnerText);
 
-                question.ListAnswer = FillAnswersFromXmlTest(question.Id);
+                question.ListAnswer = FillAnswersFromXmlTest(nod["answers"]);
+                //foreach (XmlElement childnod in lista)
+                //{
+                //    Answer svar = new Answer();
+                //    svar.Svar = nod.ChildNodes.ToString();
+
+                //}
+
+
                 question.ListRightAnswer = FillRightAnserFromXmlTest();
 
                 listQuestions.Add(question);
@@ -128,46 +141,25 @@ namespace Le_Banc
 
 
         //metod som fyller answers från test.xml
-        private List<Answer> FillAnswersFromXmlTest(int questionId)  //får just nu bara ut frågor som gäller id1, men tar jag bort ifsatsen försvinner alla answers.
-        {
-            string xmlfil = Server.MapPath("test.xml");
-            XmlDocument xml = new XmlDocument();
-
-            xml.Load(xmlfil);
-
-            XmlNodeList xmlAnswers = xml.SelectNodes("test/testquestion/answers");
-            XmlNodeList xmlAnswer = xml.SelectNodes("test/testquestion/answers/answer");
+        private List<Answer> FillAnswersFromXmlTest(XmlNode nod)  //får just nu bara ut frågor som gäller id1, men tar jag bort ifsatsen försvinner alla answers.
+        {   
             List<Answer> listAnswers = new List<Answer>();
-            //int questionId2 = questionId;
-      int no = 0;
-            foreach (XmlNode answers in xmlAnswers)
+          
+            foreach (XmlNode answer in nod)
             {
-              
-                
-                //foreach (XmlNode svaret in xmlAnswer)
-                //{
-                     int check = Convert.ToInt32(answers.ParentNode.Attributes["id"].Value);
-                   // int check = Convert.ToInt32(answers.ParentNode["nr"]);
-                
-                    if (questionId== check)
-               // while (check==questionId)
-                 //if (questionId == Convert.ToInt32(nod.Attributes["id"].Value))
-                        {   
-                            no++;
-		                    Answer answer = new Answer();
+                            Answer theanswer= new Answer();
                             try
                             {
-                                answer.Svar = answers["answer"+no].InnerText;
+                                theanswer.Svar=  answer.InnerText;   
                             }
                             catch (Exception)
                             {
                                 //throw;
                             }    
                                            
-                            listAnswers.Add(answer);
-                        }
-                //}
-           }
+                            listAnswers.Add(theanswer);
+             }
+      
             return listAnswers;
         }
 
