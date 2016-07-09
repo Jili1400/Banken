@@ -139,38 +139,35 @@ namespace Le_Banc
             XmlNodeList xmlAnswer = xml.SelectNodes("test/testquestion/answers/answer");
             List<Answer> listAnswers = new List<Answer>();
             //int questionId2 = questionId;
-        int no = 0;
+      int no = 0;
             foreach (XmlNode answers in xmlAnswers)
             {
-                foreach (XmlNode svaret in xmlAnswer)
-                {
-                     int check = Convert.ToInt32(answers.ParentNode.Attributes["id"].Value);
+              
                 
-                if (questionId== check)
+                //foreach (XmlNode svaret in xmlAnswer)
+                //{
+                     int check = Convert.ToInt32(answers.ParentNode.Attributes["id"].Value);
+                   // int check = Convert.ToInt32(answers.ParentNode["nr"]);
+                
+                    if (questionId== check)
                // while (check==questionId)
                  //if (questionId == Convert.ToInt32(nod.Attributes["id"].Value))
-                {   
-                    no++;
-		            Answer answer = new Answer();
-                    try
-                    {
-                         answer.Svar = answers["answer"+no].InnerText;
-                    }
-                    catch (Exception)
-                    {
-                        //throw;
-                        
-                    }    
-                       
-                    
-                    
-                    listAnswers.Add(answer);
-                }
-                }
-               
-               
+                        {   
+                            no++;
+		                    Answer answer = new Answer();
+                            try
+                            {
+                                answer.Svar = answers["answer"+no].InnerText;
+                            }
+                            catch (Exception)
+                            {
+                                //throw;
+                            }    
+                                           
+                            listAnswers.Add(answer);
+                        }
+                //}
            }
-           
             return listAnswers;
         }
 
