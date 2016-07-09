@@ -38,38 +38,42 @@ namespace Le_Banc
                         foreach (Question item in listQuestion)
                         {
                             nr++;
-                            
+
+                            Label labelNr = new Label();
+                            labelNr.Text = nr.ToString()+". ";
                             Label labelquestion = new Label();
                             labelquestion.Text=item.TheQuestion;
                             Label labelGroup = new Label();
                             labelGroup.Text = item.Group;
 
+                            PlaceHolderQuestions.Controls.Add(labelNr);
                             PlaceHolderQuestions.Controls.Add(labelquestion);
                             PlaceHolderQuestions.Controls.Add(new LiteralControl("<br/>"));
                             PlaceHolderQuestions.Controls.Add(labelGroup);
                             PlaceHolderQuestions.Controls.Add(new LiteralControl("<br/>"));
-                            PlaceHolderQuestions.Controls.Add(new LiteralControl("<br/>"));
 
-                            //radNrQuestion += "<tr><td>" + nr + "</td><td>" + question.TheQuestion + "</td></tr>";
+
+                            int rbnr = 0;
                             foreach (Answer svaret in item.ListAnswer)
                             {
+                                rbnr++;
                                 RadioButton radiobutton = new RadioButton();
                                 radiobutton.Text = svaret.Svar;
-                                radiobutton.ID=nr.ToString();
+                                radiobutton.ID= "n"+nr.ToString()+"r"+rbnr.ToString();
                                 
-                                //radNrQuestion += "<tr><td>" + answer + "</td><td>";
                               PlaceHolderQuestions.Controls.Add(radiobutton);
                               PlaceHolderQuestions.Controls.Add(new LiteralControl("<br/>"));
+
                             }
-                            
-                            
+
+                            PlaceHolderQuestions.Controls.Add(new LiteralControl("<br/>"));
 
                             //thisTest.Date = DateTime.Now;
                             //thisTest.ListQuestion.Add(question);
                             //listThisTest.Add(question);
                         //}
                         //Label1.Text = "<table>" + radNrQuestion + "</table>";
-                        Label1.Visible = true;
+                       // Label1.Visible = true;
 
                     //}
                     //if (question.Group=="Ekonomi")
@@ -106,8 +110,7 @@ namespace Le_Banc
 
             XmlNodeList lista = xml.SelectNodes("test/testquestion");
             List<Question> listQuestions = new List<Question>();
-            //string nyRad;
-            //nyRad = "<tr><td>Företag</td><td>Köppris(SKr)</td><td>Säljpris(SKr)</td><td>Aktieslag</td><td>Börslista</td></tr>";
+          
             foreach (XmlNode nod in lista)
             {
                 Question question = new Question();
@@ -119,21 +122,10 @@ namespace Le_Banc
                 question.AmountOfRightAnswers = Convert.ToInt32(nod["amountofrightanswers"].InnerText);
 
                 question.ListAnswer = FillAnswersFromXmlTest(nod["answers"]);
-                //foreach (XmlElement childnod in lista)
-                //{
-                //    Answer svar = new Answer();
-                //    svar.Svar = nod.ChildNodes.ToString();
-
-                //}
-
-
                 question.ListRightAnswer = FillRightAnserFromXmlTest();
-
                 listQuestions.Add(question);
 
                 //Session["listQuestion"] = listQuestions;
-                
-                
             }
 
             return listQuestions;
@@ -141,7 +133,7 @@ namespace Le_Banc
 
 
         //metod som fyller answers från test.xml
-        private List<Answer> FillAnswersFromXmlTest(XmlNode nod)  //får just nu bara ut frågor som gäller id1, men tar jag bort ifsatsen försvinner alla answers.
+        private List<Answer> FillAnswersFromXmlTest(XmlNode nod)  
         {   
             List<Answer> listAnswers = new List<Answer>();
           
@@ -193,16 +185,23 @@ namespace Le_Banc
 
         protected void ButtonLamnaIn_Click(object sender, EventArgs e)
         {
-            //RadioButton radiobutton = new RadioButton();
-            //string test = PlaceHolderQuestions.
+            CollectRbAnswers();
         }
 
-        //metod där jag hämtar hem alla frågor från xml
-        //private List<Question> catchQuestionFromXml()
-        //{
-        //    List<Question> listQuestions = new List<Question>();
-        //    return listQuestions;
-        //}
+        //metod där jag hämtar hem vilka radiobuttons som är ifyllda.
+        private void CollectRbAnswers()
+        {
+            foreach (Control control in PlaceHolderQuestions.Controls)
+            {
+                if (control.ID == "n1r1")
+                {
+                    Label1.Text = control.ID;
+                    Label1.Visible = true;
+                }
+            }
+            //string answer= PlaceHolderQuestions.FindControl(RadioButton);
+        }
+       
 
     }
 }

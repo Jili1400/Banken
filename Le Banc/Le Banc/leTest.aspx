@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="Label1" runat="server" Text="Label" Visible="false"></asp:Label>
         <asp:PlaceHolder ID="PlaceHolderQuestions" runat="server">
 
 
