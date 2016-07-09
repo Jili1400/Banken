@@ -16,7 +16,10 @@ namespace Le_Banc
         }
 
 
-        //metod där jag bygger upp testet
+        /// <summary>
+        /// Metod som bygger upp testet.
+        /// </summary>
+
         private void BuildingTest()
         {
             TheTest thisTest = new TheTest();
@@ -100,7 +103,11 @@ namespace Le_Banc
         }
 
         
-        //metod som fyller question
+        /// <summary>
+        /// Metod som fyller question(info om varje fråga) från xml.
+        /// </summary>
+        /// <returns> lista med questions </returns>
+
         private List<Question> FillQuestionFromXmlTest()
         {
             string xmlfil = Server.MapPath("test.xml");
@@ -132,7 +139,12 @@ namespace Le_Banc
         }
 
 
-        //metod som fyller answers från test.xml
+        /// <summary>
+        /// metod som fyller answers från test.xml
+        /// </summary>
+        /// <param name="nod"></param>
+        /// <returns>lista med svarsalternativ</returns>
+
         private List<Answer> FillAnswersFromXmlTest(XmlNode nod)  
         {   
             List<Answer> listAnswers = new List<Answer>();
@@ -156,7 +168,10 @@ namespace Le_Banc
         }
 
 
-        //metod som fyller rightanswers från test.xml
+        /// <summary>
+        /// Metod som fyller rightanswers från test.xml
+        /// </summary>
+        /// <returns>Returnerar lista med de rätta svaren.</returns>
         private List<RightAnswer> FillRightAnserFromXmlTest()
         {
             string xmlfil = Server.MapPath("test.xml");
@@ -183,20 +198,49 @@ namespace Le_Banc
 
         //}
 
+        /// <summary>
+        /// Knapp som .... 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void ButtonLamnaIn_Click(object sender, EventArgs e)
         {
             CollectRbAnswers();
         }
+            
+        /// <summary>
+        /// Metod som hämtar hem vilka radiobuttons och checkboxar som är ifyllda.
+        /// </summary>
 
-        //metod där jag hämtar hem vilka radiobuttons som är ifyllda.
         private void CollectRbAnswers()
         {
+           
+            int n = 0;
             foreach (Control control in PlaceHolderQuestions.Controls)
             {
-                if (control.ID == "n1r1")
+                if (control is RadioButton)
                 {
-                    Label1.Text = control.ID;
-                    Label1.Visible = true;
+                    n++;
+                int r = 1;
+                if (control.ID == "n"+n+"r"+r)
+                    {
+                        RadioButton radio =new RadioButton();
+                        radio = (RadioButton)control;
+                        Label1.Text = radio.Text;
+                        Label1.Visible = true;
+                    }
+                }
+                if(control is CheckBox)
+                {
+                    n++;
+                    int c = 1;
+                    if (control.ID == "n" + n + "c" + c)
+                    {
+                        CheckBox box = new CheckBox();
+                        box = (CheckBox)control;
+                        Label1.Text = box.Text;
+                        Label1.Visible = true;
+                    }
                 }
             }
             //string answer= PlaceHolderQuestions.FindControl(RadioButton);
