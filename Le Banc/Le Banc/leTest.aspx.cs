@@ -98,13 +98,11 @@ namespace Le_Banc
                             PlaceHolderQuestions.Controls.Add(new LiteralControl("<br/>"));
                             PlaceHolderQuestions.Controls.Add(new LiteralControl("<br/>"));
 
-                            //thisTest.Date = DateTime.Now;
-                            //thisTest.ListQuestion.Add(question);
+                            thisTest.Date = DateTime.Now;
+                            thisTest.ListQuestion.Add(item);
                             //listThisTest.Add(question);
                         //}
-                        //Label1.Text = "<table>" + radNrQuestion + "</table>";
-                       // Label1.Visible = true;
-
+                       
                     //}
                     //if (question.Group=="Ekonomi")
                     //{
@@ -147,6 +145,7 @@ namespace Le_Banc
           
             foreach (XmlNode nod in lista)
             {
+                //plocka fram ett random nummer på frågeid kolla vilken grupp.
                 Question question = new Question();
 
                 question.Id = Convert.ToInt32(nod.Attributes["id"].Value);
