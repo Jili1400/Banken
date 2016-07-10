@@ -41,34 +41,52 @@ namespace Le_Banc
                         foreach (Question item in listQuestion)
                         {
                             nr++;
-
+                            
+                            
                             Label labelNr = new Label();
                             labelNr.Text = nr.ToString()+". ";
                             Label labelquestion = new Label();
                             labelquestion.Text=item.TheQuestion;
                             Label labelGroup = new Label();
-                            labelGroup.Text = item.Group;
+                            labelGroup.Text = "("+item.Group+")";
 
                             PlaceHolderQuestions.Controls.Add(labelNr);
                             PlaceHolderQuestions.Controls.Add(labelquestion);
                             PlaceHolderQuestions.Controls.Add(new LiteralControl("<br/>"));
-                            PlaceHolderQuestions.Controls.Add(labelGroup);
-                            PlaceHolderQuestions.Controls.Add(new LiteralControl("<br/>"));
 
-
-                            int rbnr = 0;
-                            foreach (Answer svaret in item.ListAnswer)
+                            if (item.AmountOfRightAnswers==1)
                             {
-                                rbnr++;
-                                RadioButton radiobutton = new RadioButton();
-                                radiobutton.Text = svaret.Svar;
-                                radiobutton.ID= "n"+nr.ToString()+"r"+rbnr.ToString();
+                                 int rbnr = 0;
+                                foreach (Answer svaret in item.ListAnswer)
+                                {
+                                    rbnr++;
+                                    RadioButton radiobutton = new RadioButton();
+                                    radiobutton.Text = svaret.Svar;
+                                    radiobutton.ID= "n"+nr.ToString()+"r"+rbnr.ToString();
+                                    radiobutton.GroupName = item.Id.ToString();
                                 
-                              PlaceHolderQuestions.Controls.Add(radiobutton);
-                              PlaceHolderQuestions.Controls.Add(new LiteralControl("<br/>"));
-
+                                    PlaceHolderQuestions.Controls.Add(radiobutton);
+                                    PlaceHolderQuestions.Controls.Add(new LiteralControl("<br/>"));
+                                }
                             }
 
+                            else
+                            {
+                                int cbnr = 0;
+                                foreach (Answer svaret in item.ListAnswer)
+                                {
+                                    cbnr++;
+                                    CheckBox checkbox = new CheckBox();
+                                    checkbox.Text = svaret.Svar;
+                                    checkbox.ID = "n" + nr.ToString() + "c" + cbnr.ToString();
+
+                                    PlaceHolderQuestions.Controls.Add(checkbox);
+                                    PlaceHolderQuestions.Controls.Add(new LiteralControl("<br/>"));
+                                }
+                            }
+
+                            PlaceHolderQuestions.Controls.Add(labelGroup);
+                            PlaceHolderQuestions.Controls.Add(new LiteralControl("<br/>"));
                             PlaceHolderQuestions.Controls.Add(new LiteralControl("<br/>"));
 
                             //thisTest.Date = DateTime.Now;
