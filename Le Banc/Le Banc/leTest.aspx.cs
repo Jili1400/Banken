@@ -46,8 +46,13 @@ namespace Le_Banc
                         foreach (Question item in listQuestion)
                         {
                             nr++;
+
+                            //int randomnr= GetRandomNr(listQuestion);
                             
-                            
+                            //if (item.Id==randomnr)
+                            //{
+                           
+
                             Label labelNr = new Label();
                             labelNr.Text = nr.ToString()+". ";
                             Label labelquestion = new Label();
@@ -98,8 +103,8 @@ namespace Le_Banc
                             PlaceHolderQuestions.Controls.Add(new LiteralControl("<br/>"));
                             PlaceHolderQuestions.Controls.Add(new LiteralControl("<br/>"));
 
-                            thisTest.Date = DateTime.Now;
-                            thisTest.ListQuestion.Add(item);
+                            //thisTest.Date = DateTime.Now;
+                            //thisTest.ListQuestion.Add(item);
                             //listThisTest.Add(question);
                         //}
                        
@@ -112,11 +117,60 @@ namespace Le_Banc
                     //{
                      //   rlaklötaeklk
                     //}
+
+                  //}
                 }
                 
             //}  
         }
 
+        /// <summary>
+        /// Metod som tar fram ett unikt random nr, vilket ligger i intervallet mellan 1 och analet frågor i listQuestion.
+        /// </summary>
+        /// <param name="listQuestion2"></param>
+        //    private Int32 GetRandomNr(List<Question> listQuestion2)
+        //{
+        //    List<int> listrandnr = new List<Int32>();
+        //    Random randnr = new Random();
+        //    int randnrInt = Convert.ToInt32(randnr.Next(1, listQuestion2.Count));
+        //    listrandnr.Add(randnrInt);
+        //    foreach (int rand in listrandnr)
+        //    {
+        //        if (rand == randnrInt)
+        //        {
+        //          //  GetRandomNr(listQuestion2, listrandnr);
+                    
+        //        }
+        //   }
+        //   return randnrInt;
+        //}
+
+
+        /// <summary>
+        /// Overload Metod som tar fram ett unikt random nr, vilket ligger i intervallet mellan 1 och analet frågor i listQuestion.
+        /// </summary>
+        /// <param name="listQuestion2"></param>
+        /// <param name="listrandnr2"></param>
+        //private bool GetRandomNr(List<Question> listQuestion2, List<int> listrandnr2)
+        //{
+        //    List<int> listrandnr = new List<int>();
+        //    Random randnr = new Random();
+            
+        //    int randnrInt = Convert.ToInt32(randnr.Next(1, listQuestion2.Count));
+        //    listrandnr.Add(randnrInt);
+        //    foreach (int rand2 in listrandnr2)
+        //    {
+        //        if (rand2 == randnrInt)
+        //        {
+        //            //randomnumber = randnrInt;
+        //            //GetRandomNr(listQuestion2, listrandnr2, out randnrInt);
+
+        //        }
+               
+        //    }
+
+        //   // randomnumber = randnrInt;
+        //}
 
         //public static Control findControl(Control );
 
