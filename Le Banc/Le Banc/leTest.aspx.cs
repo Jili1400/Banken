@@ -228,6 +228,7 @@ namespace Le_Banc
                         radio = (RadioButton)control;
                         Label1.Text = radio.Text;
                         Label1.Visible = true;
+                        r++;
                     }
                 }
                 if(control is CheckBox)
@@ -240,6 +241,7 @@ namespace Le_Banc
                         box = (CheckBox)control;
                         Label1.Text = box.Text;
                         Label1.Visible = true;
+                        c++;
                     }
                 }
             }

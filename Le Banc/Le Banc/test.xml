@@ -32,17 +32,60 @@
 
   <testquestion id="3">
     <nr>3</nr>
-    <question>Vilken regler gäller vid sakpande av konton?</question>
-    <amountofanswers>3</amountofanswers>
+    <question>Vilka är skurkar?</question>
+    <amountofanswers>4</amountofanswers>
     <answers>
-       <answer>regel1</answer>
-       <answer>regel2</answer>
-       <answer>regel3</answer>
+       <answer>Nallemaja</answer>
+       <answer>Brummelisa</answer>
+       <answer>Reinard räv</answer>
+       <answer>Krösus Sork</answer>
     </answers>
-    <rightanswer>regel1</rightanswer>
-    <rightanswer>regel3</rightanswer>
+    <rightanswer>Reinard Räv</rightanswer>
+    <rightanswer>Krösus Sork</rightanswer>
     <amountofrightanswers>2</amountofrightanswers>
     <group>Ekonomi</group>
+  </testquestion>
+  
+<testquestion id="4">
+    <nr>4</nr>
+    <question>Vem är smartast?</question>
+    <amountofanswers>3</amountofanswers>
+    <answers>
+       <answer>Bamse</answer>
+       <answer>Skalman</answer>
+       <answer>Lille Skutt</answer>
+    </answers>
+    <rightanswer>Skalman</rightanswer>
+    <amountofrightanswers>1</amountofrightanswers>
+    <group>Etik och regelverk</group>
+  </testquestion>
+  
+  <testquestion id="5">
+    <nr>4</nr>
+    <question>Hus skall man uppföra sig mot en kompis?</question>
+    <amountofanswers>3</amountofanswers>
+    <answers>
+       <answer>Slå om man blir arg</answer>
+       <answer>Reta</answer>
+       <answer>Vara snäll.</answer>
+    </answers>
+    <rightanswer>Vara snäll</rightanswer>
+    <amountofrightanswers>1</amountofrightanswers>
+    <group>Etik och regelverk</group>
+  </testquestion>
+  
+<testquestion id="6">
+    <nr>4</nr>
+    <question>Vad heter Bamses båt</question>
+    <amountofanswers>3</amountofanswers>
+    <answers>
+       <answer>Victoria</answer>
+       <answer>Madelene</answer>
+       <answer>Estelle</answer>
+    </answers>
+    <rightanswer>Victoria</rightanswer>
+    <amountofrightanswers>1</amountofrightanswers>
+    <group>Produkter och hantering</group>
   </testquestion>
 
 </test>
