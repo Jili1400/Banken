@@ -72,6 +72,10 @@ namespace Le_Banc
 
                             else
                             {
+                                Label labelAmountOfRightAnswers = new Label();
+                                labelAmountOfRightAnswers.Text = "Fyll i " + item.AmountOfRightAnswers + " svar.";
+                                PlaceHolderQuestions.Controls.Add(labelAmountOfRightAnswers);
+                                PlaceHolderQuestions.Controls.Add(new LiteralControl("<br/>"));
                                 int cbnr = 0;
                                 foreach (Answer svaret in item.ListAnswer)
                                 {

@@ -10,7 +10,9 @@
       <answer>Kaffemaskinen</answer>
       <answer>Kakburken</answer>
     </answers>    
-    <rightanswer>Kaffemaskinen</rightanswer>
+    <rightanswers>
+      <rightanswer>Kaffemaskinen</rightanswer>
+    </rightanswers>
     <group>Produkter och hantering</group>
     <amountofrightanswers>1</amountofrightanswers>
   </testquestion>
@@ -24,8 +26,10 @@
       <answer>euro</answer>
       <answer>nkr</answer>
     </answers>    
-    <rightanswer>dollar</rightanswer>
-    <rightanswer>euro</rightanswer>
+    <rightanswers>
+      <rightanswer>dollar</rightanswer>
+      <rightanswer>euro</rightanswer>
+    </rightanswers>
     <group>Ekonomi</group>
     <amountofrightanswers>2</amountofrightanswers>
   </testquestion>
@@ -40,8 +44,10 @@
        <answer>Reinard räv</answer>
        <answer>Krösus Sork</answer>
     </answers>
-    <rightanswer>Reinard Räv</rightanswer>
-    <rightanswer>Krösus Sork</rightanswer>
+    <rightanswers>
+      <rightanswer>Reinard Räv</rightanswer>
+      <rightanswer>Krösus Sork</rightanswer>
+    </rightanswers>
     <amountofrightanswers>2</amountofrightanswers>
     <group>Ekonomi</group>
   </testquestion>
@@ -55,7 +61,9 @@
        <answer>Skalman</answer>
        <answer>Lille Skutt</answer>
     </answers>
-    <rightanswer>Skalman</rightanswer>
+    <rightanswers>
+      <rightanswer>Skalman</rightanswer>
+    </rightanswers>
     <amountofrightanswers>1</amountofrightanswers>
     <group>Etik och regelverk</group>
   </testquestion>
@@ -69,7 +77,9 @@
        <answer>Reta</answer>
        <answer>Vara snäll.</answer>
     </answers>
-    <rightanswer>Vara snäll</rightanswer>
+    <rightanswers>
+      <rightanswer>Vara snäll</rightanswer>
+    </rightanswers>
     <amountofrightanswers>1</amountofrightanswers>
     <group>Etik och regelverk</group>
   </testquestion>
@@ -83,11 +93,34 @@
        <answer>Madelene</answer>
        <answer>Estelle</answer>
     </answers>
-    <rightanswer>Victoria</rightanswer>
+    <rightanswers>
+      <rightanswer>Victoria</rightanswer>
+    </rightanswers>
     <amountofrightanswers>1</amountofrightanswers>
     <group>Produkter och hantering</group>
   </testquestion>
 
+<testquestion id="7">
+    <nr>4</nr>
+    <question>Vad heter Bamses barn</question>
+    <amountofanswers>6</amountofanswers>
+    <answers>
+       <answer>Brummelisa</answer>
+       <answer>Nallemaja</answer>
+       <answer>Minihopp</answer>
+       <answer>Brum</answer>
+       <answer>Teddy</answer>
+       <answer>Brumma</answer>
+    </answers>
+    <rightanswers>
+      <rightanswer>Nallemaja</rightanswer>
+      <rightanswer>Brum</rightanswer>
+      <rightanswer>Teddy</rightanswer>
+      <rightanswer>Brumma</rightanswer>
+    </rightanswers>
+    <amountofrightanswers>1</amountofrightanswers>
+    <group>Produkter och hantering</group>
+  </testquestion>
 </test>
 
 
