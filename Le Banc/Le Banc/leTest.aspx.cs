@@ -25,7 +25,12 @@ namespace Le_Banc
             TheTest thisTest = new TheTest();
             List<Question> listQuestion = FillQuestionFromXmlTest();
             List<TheTest> listThisTest = new List<TheTest>();
-            
+
+            Label labelhedding = new Label();
+            labelhedding.Text = "Test";
+            PlaceHolderQuestions.Controls.Add(labelhedding);
+            PlaceHolderQuestions.Controls.Add(new LiteralControl("<br/>"));
+            PlaceHolderQuestions.Controls.Add(new LiteralControl("<br/>"));
             //foreach (Question question in listQuestion)
             //{
             //    thisTest.Testnr = GetTestNr();
@@ -151,7 +156,7 @@ namespace Le_Banc
                 question.AmountOfRightAnswers = Convert.ToInt32(nod["amountofrightanswers"].InnerText);
 
                 question.ListAnswer = FillAnswersFromXmlTest(nod["answers"]);
-                question.ListRightAnswer = FillRightAnserFromXmlTest();
+                //question.ListRightAnswer = FillRightAnserFromXmlTest();
                 listQuestions.Add(question);
 
                 //Session["listQuestion"] = listQuestions;

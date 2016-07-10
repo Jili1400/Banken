@@ -69,7 +69,7 @@
   </testquestion>
   
   <testquestion id="5">
-    <nr>4</nr>
+    <nr>5</nr>
     <question>Hus skall man uppföra sig mot en kompis?</question>
     <amountofanswers>3</amountofanswers>
     <answers>
@@ -85,7 +85,7 @@
   </testquestion>
   
 <testquestion id="6">
-    <nr>4</nr>
+    <nr>6</nr>
     <question>Vad heter Bamses båt</question>
     <amountofanswers>3</amountofanswers>
     <answers>
@@ -101,7 +101,7 @@
   </testquestion>
 
 <testquestion id="7">
-    <nr>4</nr>
+    <nr>7</nr>
     <question>Vad heter Bamses barn</question>
     <amountofanswers>6</amountofanswers>
     <answers>
@@ -118,8 +118,40 @@
       <rightanswer>Teddy</rightanswer>
       <rightanswer>Brumma</rightanswer>
     </rightanswers>
+    <amountofrightanswers>4</amountofrightanswers>
+    <group>Produkter och hantering</group>
+  </testquestion>
+
+<testquestion id="8">
+    <nr>8</nr>
+    <question>Vad gör Bamse stark?</question>
+    <amountofanswers>3</amountofanswers>
+    <answers>
+       <answer>Supersirap</answer>
+       <answer>Starksocker</answer>
+       <answer>Dunderhonung</answer>
+    </answers>
+    <rightanswers>
+      <rightanswer>Dunderhonung</rightanswer>
+    </rightanswers>
     <amountofrightanswers>1</amountofrightanswers>
     <group>Produkter och hantering</group>
+  </testquestion>
+
+<testquestion id="9">
+    <nr>9</nr>
+    <question>Vad jobbar Bamse som?</question>
+    <amountofanswers>3</amountofanswers>
+    <answers>
+       <answer>Skogshuggare</answer>
+       <answer>Badvakt</answer>
+       <answer>Bibliotikarie</answer>
+    </answers>
+    <rightanswers>
+      <rightanswer>Skogshuggare</rightanswer>
+    </rightanswers>
+    <amountofrightanswers>1</amountofrightanswers>
+    <group>Ekonomi</group>
   </testquestion>
 </test>
 
