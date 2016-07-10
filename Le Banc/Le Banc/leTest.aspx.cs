@@ -10,6 +10,7 @@ namespace Le_Banc
 {
     public partial class leTest : System.Web.UI.Page
     {
+        //  rad 120 Session["listthistest"] = listThisTest;
         protected void Page_Load(object sender, EventArgs e)
         {
            BuildingTest();
@@ -77,6 +78,12 @@ namespace Le_Banc
                                 
                                     PlaceHolderQuestions.Controls.Add(radiobutton);
                                     PlaceHolderQuestions.Controls.Add(new LiteralControl("<br/>"));
+                                    TheTest questioninfo = new TheTest();
+                                    questioninfo.Date = DateTime.Now;
+                                    questioninfo.questionId = item.Id;
+                                    //questioninfo.Testnr=.... ;
+
+                                    listThisTest.Add(questioninfo);
                                 }
                             }
 
@@ -96,12 +103,21 @@ namespace Le_Banc
 
                                     PlaceHolderQuestions.Controls.Add(checkbox);
                                     PlaceHolderQuestions.Controls.Add(new LiteralControl("<br/>"));
+
+                                    TheTest questioninfo = new TheTest();
+                                    questioninfo.Date = DateTime.Now;
+                                    questioninfo.questionId = item.Id;
+                                    //questioninfo.Testnr=.... ;
+
+                                    listThisTest.Add(questioninfo);
                                 }
                             }
 
                             PlaceHolderQuestions.Controls.Add(labelGroup);
                             PlaceHolderQuestions.Controls.Add(new LiteralControl("<br/>"));
                             PlaceHolderQuestions.Controls.Add(new LiteralControl("<br/>"));
+
+                            Session["listthistest"] = listThisTest;
 
                             //thisTest.Date = DateTime.Now;
                             //thisTest.ListQuestion.Add(item);
@@ -207,9 +223,17 @@ namespace Le_Banc
                 question.Group = nod["group"].InnerText;
                 question.AmountOfAnswers = Convert.ToInt32(nod["amountofanswers"].InnerText);
                 question.AmountOfRightAnswers = Convert.ToInt32(nod["amountofrightanswers"].InnerText);
-
+               
                 question.ListAnswer = FillAnswersFromXmlTest(nod["answers"]);
-                //question.ListRightAnswer = FillRightAnserFromXmlTest();
+                if (question.AmountOfRightAnswers>1)
+                {
+                     question.ListRightAnswer = FillRightAnswerFromXmlTest(nod);
+                }
+                else if (question.AmountOfRightAnswers==1)
+                {
+                    question.RightAnswer = nod["rightanswer"].InnerText;
+                }
+               
                 listQuestions.Add(question);
 
                 //Session["listQuestion"] = listQuestions;
@@ -252,21 +276,27 @@ namespace Le_Banc
         /// Metod som fyller rightanswers från test.xml
         /// </summary>
         /// <returns>Returnerar lista med de rätta svaren.</returns>
-        private List<RightAnswer> FillRightAnserFromXmlTest()
+            private List<RightAnswer> FillRightAnswerFromXmlTest(XmlNode nod)
         {
-            string xmlfil = Server.MapPath("test.xml");
-            XmlDocument xml = new XmlDocument();
-
-            xml.Load(xmlfil);
-
-            XmlNodeList lista = xml.SelectNodes("test/testquestion");
+         
             List<RightAnswer> listRightAnswers = new List<RightAnswer>();
 
-            foreach (XmlNode nod in lista)
+            foreach (XmlNode rightAnswer in nod)
             {
-                RightAnswer rightAnswer = new RightAnswer();
-                rightAnswer.RattSvar = nod["rightanswer"].InnerText;
-                listRightAnswers.Add(rightAnswer);
+                RightAnswer theRightAnswer = new RightAnswer();
+                try
+                {
+                    theRightAnswer.RattSvar = rightAnswer.InnerText;
+                }
+                catch (Exception)
+                {
+                    //throw;
+                }
+
+                listRightAnswers.Add(theRightAnswer);
+                //RightAnswer rightAnswer = new RightAnswer();
+                //rightAnswer.RattSvar = rattSvar["rightanswer"].InnerText;
+                //listRightAnswers.Add(rightAnswer);
                 
             }
 
@@ -285,16 +315,65 @@ namespace Le_Banc
         /// <param name="e"></param>
         protected void ButtonLamnaIn_Click(object sender, EventArgs e)
         {
-            CollectRbAnswers();
+            int SumTotal = 0;
+            int sumEkonomi = 0;
+            int sumEtik = 0;
+            int sumProdukter= 0;
+
+            List<CollectedAnswer> listhamtadeSvar = new List<CollectedAnswer>();
+            listhamtadeSvar = CollectAnswers();
+            List<RightAnswer> listRattaSvaren = new List<RightAnswer>();
+
+            List<TheTest> listtestet = Session["listthistest"] as List<TheTest>;
+            List<Question> listQuestion = FillQuestionFromXmlTest();
+
+            foreach (Question questionitem in listQuestion)
+            {
+                foreach (TheTest thetestitem in listtestet)
+                {
+                    if (questionitem.Id == thetestitem.questionId)
+                    {
+                        if (questionitem.AmountOfRightAnswers==1)
+                        {
+                            if (questionitem.RightAnswer==thetestitem.collectedAnswer)
+                            {
+                                SumTotal++;
+                                
+                                if (questionitem.Group=="Produkter och hantering")
+                                {
+                                    sumProdukter++;
+                                }
+                                else if (questionitem.Group == "Ekonomi")
+                                {
+                                    sumEkonomi++;
+                                }
+                                else if (questionitem.Group=="Etik")
+                                {
+                                    sumEtik++;
+                                }
+                                                                
+                            }
+                        }
+                    }
+                }
+            }
+
+            double total=SumTotal/listQuestion.Count;
+            //double product=sumProdukter/
+            if (total> 0.7)
+	        {
+                Label1.Text = "Summa: "+SumTotal+" summaEtik: "+sumEtik+" summa Ekonomi: " +sumEkonomi+ " summa produkter: "+sumProdukter;
+                Label1.Visible= true;
+	        } 
         }
             
         /// <summary>
         /// Metod som hämtar hem vilka radiobuttons och checkboxar som är ifyllda.
         /// </summary>
 
-        private void CollectRbAnswers()
+        private List<CollectedAnswer> CollectAnswers()
         {
-           
+            List<CollectedAnswer> listCollectedAnswers = new List<CollectedAnswer>();
             int n = 0;
             foreach (Control control in PlaceHolderQuestions.Controls)
             {
@@ -306,9 +385,13 @@ namespace Le_Banc
                     {
                         RadioButton radio =new RadioButton();
                         radio = (RadioButton)control;
-                        Label1.Text = radio.Text;
-                        Label1.Visible = true;
+                        CollectedAnswer collectedAnsw = new CollectedAnswer();
+                        collectedAnsw.hamtatSvar = radio.Text;
+                        //Label1.Text = radio.Text;
+                        //Label1.Visible = true;
                         r++;
+                        listCollectedAnswers.Add(collectedAnsw);
+                    
                     }
                 }
                 if(control is CheckBox)
@@ -319,12 +402,16 @@ namespace Le_Banc
                     {
                         CheckBox box = new CheckBox();
                         box = (CheckBox)control;
-                        Label1.Text = box.Text;
-                        Label1.Visible = true;
+                        CollectedAnswer collectedAnsw = new CollectedAnswer();
+                        collectedAnsw.hamtatSvar = box.Text;
+                        //Label1.Text = box.Text;
+                        //Label1.Visible = true;
                         c++;
+                        listCollectedAnswers.Add(collectedAnsw);
                     }
                 }
             }
+            return listCollectedAnswers;
             //string answer= PlaceHolderQuestions.FindControl(RadioButton);
         }
        

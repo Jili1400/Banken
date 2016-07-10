@@ -8,6 +8,7 @@ namespace Le_Banc
     public class RightAnswer
     {
         public string RattSvar { get; set; }
-       
+        public int questionId { get; set; }
+               
     }
 }
