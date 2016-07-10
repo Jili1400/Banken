@@ -225,14 +225,14 @@ namespace Le_Banc
                 question.AmountOfRightAnswers = Convert.ToInt32(nod["amountofrightanswers"].InnerText);
                
                 question.ListAnswer = FillAnswersFromXmlTest(nod["answers"]);
-                if (question.AmountOfRightAnswers>1)
-                {
-                     question.ListRightAnswer = FillRightAnswerFromXmlTest(nod);
-                }
-                else if (question.AmountOfRightAnswers==1)
-                {
-                    question.RightAnswer = nod["rightanswer"].InnerText;
-                }
+                //if (question.AmountOfRightAnswers>1)
+                //{
+                //     question.ListRightAnswer = FillRightAnswerFromXmlTest(nod);
+                //}
+                //else if (question.AmountOfRightAnswers==1)
+                //{
+                //    question.RightAnswer = nod["rightanswer"].InnerText;
+                //}
                
                 listQuestions.Add(question);
 
@@ -333,32 +333,42 @@ namespace Le_Banc
                 {
                     if (questionitem.Id == thetestitem.questionId)
                     {
-                        if (questionitem.AmountOfRightAnswers==1)
-                        {
-                            if (questionitem.RightAnswer==thetestitem.collectedAnswer)
+                        foreach (RightAnswer rightanswer in questionitem.ListRightAnswer)
+                        { 
+                            if (questionitem.AmountOfRightAnswers==1)
                             {
-                                SumTotal++;
+                            
+                                if (rightanswer.RattSvar!= thetestitem.collectedAnswer)
+                                {
+                                    return;                  
+                                }
+                                else
+                                {
+                                     SumTotal++;//nu får jag ju poäng för varje rightanswer även om det är fyra stycket i checkboxen.
                                 
-                                if (questionitem.Group=="Produkter och hantering")
-                                {
-                                    sumProdukter++;
+                                    if (questionitem.Group=="Produkter och hantering")
+                                    {
+                                        sumProdukter++;
+                                    }
+                                    else if (questionitem.Group == "Ekonomi")
+                                    {
+                                        sumEkonomi++;
+                                    }
+                                    else if (questionitem.Group=="Etik")
+                                    {
+                                        sumEtik++;
+                                    }
+                                          
                                 }
-                                else if (questionitem.Group == "Ekonomi")
-                                {
-                                    sumEkonomi++;
-                                }
-                                else if (questionitem.Group=="Etik")
-                                {
-                                    sumEtik++;
-                                }
-                                                                
+                               
                             }
+                           
                         }
                     }
                 }
             }
 
-            double total=SumTotal/listQuestion.Count;
+            double total = SumTotal/listQuestion.Count;
             //double product=sumProdukter/
             if (total> 0.7)
 	        {
@@ -367,6 +377,9 @@ namespace Le_Banc
 	        } 
         }
             
+
+
+
         /// <summary>
         /// Metod som hämtar hem vilka radiobuttons och checkboxar som är ifyllda.
         /// </summary>
