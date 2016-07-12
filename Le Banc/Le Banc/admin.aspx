@@ -4,7 +4,7 @@
     <link rel="stylesheet" type="text/css" href="/CSS/responsiv.css" media="screen and (max-width: 900px)" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<section id="adminsida">
+    <section id="adminsida">
     <asp:Label ID="lbl" runat="server" Text="Label"></asp:Label>
 </section>
     

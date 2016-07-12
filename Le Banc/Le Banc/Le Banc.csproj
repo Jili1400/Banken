@@ -78,7 +78,6 @@
     <Content Include="Images\MelkerochEbbabadar.jpg" />
     <Content Include="Images\temple.jpg" />
     <Content Include="leTest.aspx" />
-    <Content Include="Mono.Security.dll" />
     <Content Include="test.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -105,6 +104,7 @@
       <DependentUpon>leTest.aspx</DependentUpon>
     </Compile>
     <Compile Include="CollectedAnswer.cs" />
+    <Compile Include="methods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>

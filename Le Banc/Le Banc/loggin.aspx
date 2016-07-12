@@ -20,17 +20,18 @@
     " ForeColor="#FF6600"></asp:Label>
     <br/>
     <br/> 
-    <asp:Label ID="lblId" runat="server" Text="Användarnamn" ForeColor="#666666"></asp:Label>  
+    <asp:Label ID="lblUserName" runat="server" Text="Användarnamn" ForeColor="#666666"></asp:Label>  
         <br/>
-    <asp:TextBox ID="txbId" runat="server" Text="" ForeColor="#999999"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Vänligen ange användarnamn" ForeColor="Silver" ControlToValidate="txbId"></asp:RequiredFieldValidator>
-        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ForeColor="Silver" ControlToValidate="txbId" ErrorMessage="Vänligen ange en korrekt emailadress" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+    <asp:TextBox ID="txbUserName" runat="server" Text="" ForeColor="#999999"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Vänligen ange användarnamn" ForeColor="Silver" ControlToValidate="txbUserName"></asp:RequiredFieldValidator>
+        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ForeColor="Silver" ControlToValidate="txbUserName" ErrorMessage="Vänligen ange en korrekt emailadress" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
     <br/>
     <asp:Label ID="lblPassword" runat="server" Text="Lösenord" ForeColor="#666666"></asp:Label>
         <br/>
     <asp:TextBox ID="txbPassword" runat="server" Text="Lösenord" ForeColor="#999999" TextMode="Password"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Vänligen ange lösenord" ForeColor="Silver" ControlToValidate="txbPassword"></asp:RequiredFieldValidator>
     <br/>
+     <asp:Label ID="lblErrorMessage" runat="server" CssClass="UserMessage" Text="Label"></asp:Label>
     <br/>
     <asp:Button ID="btnLoggin" runat="server" Text="Logga in" OnClick="btnLoggin_Click" ForeColor="#FF6600" Width="162px" Height="27px" />
     <br/>
