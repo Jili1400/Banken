@@ -86,6 +86,7 @@
     <Content Include="kompetensportalen.aspx" />
     <Content Include="loggin.aspx" />
     <Content Include="admin.aspx" />
+    <Content Include="personal.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Answer.cs" />
@@ -137,6 +138,13 @@
     </Compile>
     <Compile Include="admin.aspx.designer.cs">
       <DependentUpon>admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="personal.aspx.cs">
+      <DependentUpon>personal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="personal.aspx.designer.cs">
+      <DependentUpon>personal.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
