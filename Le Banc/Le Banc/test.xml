@@ -17,7 +17,7 @@
     <amountofrightanswers>1</amountofrightanswers>
   </testquestion>
 
-  <testquestion id="2">
+  <!--<testquestion id="2">
     <nr>2</nr>
     <question>Vilka valutor är bäst att använda?</question>
     <amountofanswers>3</amountofanswers>
@@ -32,9 +32,9 @@
     </rightanswers>
     <group>Ekonomi</group>
     <amountofrightanswers>2</amountofrightanswers>
-  </testquestion>
+  </testquestion>-->
 
-  <testquestion id="3">
+  <!--<testquestion id="3">
     <nr>3</nr>
     <question>Vilka är skurkar?</question>
     <amountofanswers>4</amountofanswers>
@@ -152,7 +152,7 @@
     </rightanswers>
     <amountofrightanswers>1</amountofrightanswers>
     <group>Ekonomi</group>
-  </testquestion>
+  </testquestion>-->
 </test>
 
 

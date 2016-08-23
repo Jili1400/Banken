@@ -47,6 +47,7 @@ namespace Le_Banc
                         foreach (Question item in listQuestion)
                         {
                             nr++;
+                           
 
                             //int randomnr= GetRandomNr(listQuestion);
                             
@@ -75,6 +76,7 @@ namespace Le_Banc
                                     radiobutton.Text = svaret.Svar;
                                     radiobutton.ID= "n"+nr.ToString()+"r"+rbnr.ToString();
                                     radiobutton.GroupName = item.Id.ToString();
+                                    //radiobutton.GroupName = nr.ToString();
                                 
                                     PlaceHolderQuestions.Controls.Add(radiobutton);
                                     PlaceHolderQuestions.Controls.Add(new LiteralControl("<br/>"));
@@ -227,7 +229,7 @@ namespace Le_Banc
                 question.ListAnswer = FillAnswersFromXmlTest(nod["answers"]);
                 //if (question.AmountOfRightAnswers>1)
                 //{
-                //     question.ListRightAnswer = FillRightAnswerFromXmlTest(nod);
+                question.ListRightAnswer = FillRightAnswerFromXmlTest(nod["rightanswers"]);
                 //}
                 //else if (question.AmountOfRightAnswers==1)
                 //{
@@ -315,70 +317,149 @@ namespace Le_Banc
         /// <param name="e"></param>
         protected void ButtonLamnaIn_Click(object sender, EventArgs e)
         {
-            int SumTotal = 0;
+            int sumTotal = 0;
             int sumEkonomi = 0;
             int sumEtik = 0;
             int sumProdukter= 0;
 
-            List<CollectedAnswer> listhamtadeSvar = new List<CollectedAnswer>();
-            listhamtadeSvar = CollectAnswers();
-            List<RightAnswer> listRattaSvaren = new List<RightAnswer>();
+            //Radiobuttoncheck(sumTotal, sumEkonomi, sumEtik, sumProdukter);
 
-            List<TheTest> listtestet = Session["listthistest"] as List<TheTest>;
-            List<Question> listQuestion = FillQuestionFromXmlTest();
+            //List<CollectedAnswer> listhamtadeSvar = new List<CollectedAnswer>();
+            //listhamtadeSvar = CollectAnswers();
+            //List<RightAnswer> listRattaSvaren = new List<RightAnswer>();
 
-            foreach (Question questionitem in listQuestion)
-            {
-                foreach (TheTest thetestitem in listtestet)
-                {
-                    if (questionitem.Id == thetestitem.questionId)
-                    {
-                        foreach (RightAnswer rightanswer in questionitem.ListRightAnswer)
-                        { 
-                            if (questionitem.AmountOfRightAnswers==1)
-                            {
+            //List<TheTest> listtestet = Session["listthistest"] as List<TheTest>;
+            //List<Question> listQuestion = FillQuestionFromXmlTest();
+
+            //foreach (Question questionitem in listQuestion)
+            //{
+            //    int g = 0;
+                //foreach (TheTest thetestitem in listtestet)
+                //{
+                    //for (int i = 0; i < questionitem.AmountOfRightAnswers ; i++)
+                    //{
+                        //foreach (RightAnswer rightansweritem in questionitem.ListRightAnswer)
+                        //{
+                        //    foreach (TheTest testitem in listtestet)
+                        //    {
+                        //        if (testitem.ToString()==rightansweritem.ToString())
+                        //        {
+                        //            g++;
+                        //            //if (i==questionitem.AmountOfRightAnswers)
+                        //            //{
+                        //                if (g==questionitem.AmountOfRightAnswers)
+                        //                {
+                        //                    sumTotal++;
+                        //                     if (questionitem.Group=="Produkter och hantering")
+                        //                     {
+                        //                         sumProdukter++;
+                        //                     }
+                        //                     else if (questionitem.Group == "Ekonomi")
+                        //                     {
+                        //                         sumEkonomi++;
+                        //                     }
+                        //                     else if (questionitem.Group == "Etik")
+                        //                     {
+                        //                         sumEtik++;
+                        //                     }
+                        //                //}
+                        //            }
+                        //        } 
+                        //    }
+                        //}
+                    //}
+
+                    //if (questionitem.Id == thetestitem.questionId)
+                    //{
+                    //    foreach (RightAnswer rightanswer in questionitem.ListRightAnswer)
+                    //    { 
+                    //        if (questionitem.AmountOfRightAnswers==1)
+                    //        {
                             
-                                if (rightanswer.RattSvar!= thetestitem.collectedAnswer)
-                                {
-                                    return;                  
-                                }
-                                else
-                                {
-                                     SumTotal++;//nu får jag ju poäng för varje rightanswer även om det är fyra stycket i checkboxen.
+                    //            if (rightanswer.RattSvar!= thetestitem.collectedAnswer)
+                    //            {
+                    //                return;                  
+                    //            }
+                    //            else
+                    //            {
+                    //                 SumTotal++;//nu får jag ju poäng för varje rightanswer även om det är fyra stycket i checkboxen.
                                 
-                                    if (questionitem.Group=="Produkter och hantering")
-                                    {
-                                        sumProdukter++;
-                                    }
-                                    else if (questionitem.Group == "Ekonomi")
-                                    {
-                                        sumEkonomi++;
-                                    }
-                                    else if (questionitem.Group=="Etik")
-                                    {
-                                        sumEtik++;
-                                    }
+                    //                if (questionitem.Group=="Produkter och hantering")
+                    //                {
+                    //                    sumProdukter++;
+                    //                }
+                    //                else if (questionitem.Group == "Ekonomi")
+                    //                {
+                    //                    sumEkonomi++;
+                    //                }
+                    //                else if (questionitem.Group=="Etik")
+                    //                {
+                    //                    sumEtik++;
+                    //                }
                                           
-                                }
+                    //            }
                                
-                            }
+                    //        }
                            
+                    //    }
+                    //}
+                
+    
+            //Label1.Text = "Summa: " + sumTotal + " summaEtik: " + sumEtik + " summa Ekonomi: " + sumEkonomi + " summa produkter: " + sumProdukter;
+            //Label1.Visible = true;
+
+            //int lengthListQuestion=listQuestion.Count;
+            //double total = sumTotal/listQuestion.Count;
+            ////double product=sumProdukter/
+            //if (sumTotal/listQuestion.Count> 0.7)
+            //{
+            //    Label1.Text = "Summa: "+sumTotal+" summaEtik: "+sumEtik+" summa Ekonomi: " +sumEkonomi+ " summa produkter: "+sumProdukter;
+            //    Label1.Visible= true;
+            //} 
+        }
+
+
+        /// <summary>
+        /// Metod som hämtar hem information från Radiobutton, rättar svaret och ökar summan på provet.
+        /// </summary>
+        private void Radiobuttoncheck(int sumTotal, int sumEkonomi, int sumEtik, int sumProdukter)
+        {
+            foreach (Control control in PlaceHolderQuestions.Controls)
+            {
+                List<Question> xmlQuestionList = FillQuestionFromXmlTest();
+
+                if (control is RadioButton)
+                {
+                    RadioButton radioknapp = new RadioButton();
+                    if (radioknapp.Checked==true)
+                    {
+                        foreach (Question xmlquestion in xmlQuestionList)
+	                    {
+		                    if (xmlquestion.Id.ToString()==radioknapp.ID)
+                            {
+                                if (xmlquestion.RightAnswer==radioknapp.Text)
+                                {
+                                     sumTotal++;
+                                             if (xmlquestion.Group=="Produkter och hantering")
+                                             {
+                                                 sumProdukter++;
+                                             }
+                                             else if (xmlquestion.Group == "Ekonomi")
+                                             {
+                                                 sumEkonomi++;
+                                             }
+                                             else if (xmlquestion.Group == "Etik")
+                                             {
+                                                 sumEtik++;
+                                             }
+                                }
+                            }
                         }
                     }
                 }
             }
 
-            double total = SumTotal/listQuestion.Count;
-            //double product=sumProdukter/
-            if (total> 0.7)
-	        {
-                Label1.Text = "Summa: "+SumTotal+" summaEtik: "+sumEtik+" summa Ekonomi: " +sumEkonomi+ " summa produkter: "+sumProdukter;
-                Label1.Visible= true;
-	        } 
         }
-            
-
-
 
         /// <summary>
         /// Metod som hämtar hem vilka radiobuttons och checkboxar som är ifyllda.
@@ -386,43 +467,77 @@ namespace Le_Banc
 
         private List<CollectedAnswer> CollectAnswers()
         {
+            List<Question> listQuestion = FillQuestionFromXmlTest();
             List<CollectedAnswer> listCollectedAnswers = new List<CollectedAnswer>();
-            int n = 0;
+            //int n = 0;
+            int p = 0;
+            int nr1 =1;
             foreach (Control control in PlaceHolderQuestions.Controls)
             {
-                if (control is RadioButton)
-                {
-                    n++;
-                int r = 1;
-                if (control.ID == "n"+n+"r"+r)
+                //if (control is Label)
+                //{
+                //    Label labelnr = new Label();
+                //    labelnr=(Label)control;
+                //    if (labelnr.ID==p.ToString())
+                //    {
+                        
+                //    }8
+                //}
+                
+
+                //if (PlaceHolderQuestions.Controls.Contains(labelNr) == true)
+                //{
+                    //int n = Convert.ToInt32(PlaceHolderQuestions.Controls.ToString());
+
+                    if (control is RadioButton)
                     {
-                        RadioButton radio =new RadioButton();
-                        radio = (RadioButton)control;
-                        CollectedAnswer collectedAnsw = new CollectedAnswer();
-                        collectedAnsw.hamtatSvar = radio.Text;
-                        //Label1.Text = radio.Text;
-                        //Label1.Visible = true;
-                        r++;
-                        listCollectedAnswers.Add(collectedAnsw);
-                    
+                        //n++;
+                        int r = 1;
+                        //if (control.ID == "n" + n + "r" + r)
+                        //{
+
+                            RadioButton radio = new RadioButton();
+                            radio = (RadioButton)control;
+
+                            //while (radio.GroupName==nr1.ToString())
+                            //{
+                            //    for (int i = 0; i < length; i++)
+                            //    {
+                                    
+                            //    }
+                            //    if (radio.Checked == true)
+                            //    {
+                            //        CollectedAnswer collectedAnsw = new CollectedAnswer();
+                            //        collectedAnsw.hamtatSvar = radio.Text;
+                            //    //Label1.Text = radio.Text;
+                            //    //Label1.Visible = true;
+                            //        r++;
+                            //        listCollectedAnswers.Add(collectedAnsw);
+                            //    }
+                            //}
+                            nr1++;
+                        
+                        //}
                     }
-                }
-                if(control is CheckBox)
-                {
-                    n++;
-                    int c = 1;
-                    if (control.ID == "n" + n + "c" + c)
-                    {
-                        CheckBox box = new CheckBox();
-                        box = (CheckBox)control;
-                        CollectedAnswer collectedAnsw = new CollectedAnswer();
-                        collectedAnsw.hamtatSvar = box.Text;
-                        //Label1.Text = box.Text;
-                        //Label1.Visible = true;
-                        c++;
-                        listCollectedAnswers.Add(collectedAnsw);
-                    }
-                }
+                    ////////if (control is CheckBox)
+                    ////////{
+                    ////////   // n++;
+                    ////////    int c = 1;
+                    ////////    if (control.ID == "n" + n + "c" + c)
+                    ////////    {
+                    ////////        CheckBox box = new CheckBox();
+                    ////////        box = (CheckBox)control;
+                    ////////        CollectedAnswer collectedAnsw = new CollectedAnswer();
+                    ////////        collectedAnsw.hamtatSvar = box.Text;
+                    ////////        //Label1.Text = box.Text;
+                    ////////        //Label1.Visible = true;
+                    ////////        c++;
+                    ////////        listCollectedAnswers.Add(collectedAnsw);
+                    ////////    }
+                    ////////}
+
+                //}
+                
             }
             return listCollectedAnswers;
             //string answer= PlaceHolderQuestions.FindControl(RadioButton);
