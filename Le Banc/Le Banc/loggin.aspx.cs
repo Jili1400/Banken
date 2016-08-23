@@ -13,6 +13,11 @@ namespace Le_Banc
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                List<personnel> personnelList = new List<personnel>();
+                personnelList = methods.getPersonnelList();
+            }
 
         }
 
@@ -20,33 +25,36 @@ namespace Le_Banc
         {
             string userName = txbUserName.Text;
             string userPassword = txbPassword.Text;
-            //if (methods.checkUserExist(userName, userPassword) == true)
-            //{
-            //    User newUser = new User();
+            int idPersonnel = Convert.ToInt32(Session["idPersonnel"]);
 
-            //    // get all user info by name and password
-            //    newUser = methods.getUserByName(userName, userPassword);
-            //    Session["id_users"] = newUser.userID;
+            if (methods.checkPersonnelExist(idPersonnel, userName, userPassword) == true)
+            {
+                personnel newPersonnel = new personnel();
 
-            //    if (staff == false)
-            //    {
-            //        FormsAuthentication.RedirectFromLoginPage(accessId.ToString(), false);
-            //        Response.Redirect("personal.aspx");
-            //    }
-            //    else if (staff == true)
-            //    {
-            //        FormsAuthentication.RedirectFromLoginPage(accessId.ToString(), false);
-            //        Response.Redirect("admin.aspx");
-            //    }
-            //    else
-            //    {
-            //        lblErrorMessage.Text = "Användare saknar behörighet";
-            //    }
-            //}
-            //else
-            //{
-            //    lblErrorMessage.Text = "Fel användarnamn eller lösenord. Försök igen.";
-            //}
+                // get all user info by name and password
+                //newPersonnel = methods.getPersonnelByName(userName, userPassword);
+
+                Session["idPersonnel"] = newPersonnel.idPersonnel;
+
+                if (newPersonnel.access == 1)
+                {
+                    //FormsAuthentication.RedirectFromLoginPage(access.ToString(), false);
+                    Response.Redirect("personal.aspx");
+                }
+                else if (newPersonnel.access == 2)
+                {
+                    //FormsAuthentication.RedirectFromLoginPage(accessId.ToString(), false);
+                    Response.Redirect("admin.aspx");
+                }
+                else
+                {
+                    lblErrorMessage.Text = "Användare saknar behörighet";
+                }
+            }
+            else
+            {
+                lblErrorMessage.Text = "Fel användarnamn eller lösenord. Försök igen.";
+            }
             
             
             //Session["Id"] = //Id från inloggad från databasen
@@ -58,9 +66,9 @@ namespace Le_Banc
             //else
             //{
             //  Response.Redirect("~/kompetensportalen.aspx");
-            //}
-
-
-        }
+            }
     }
+            
 }
+        
+    

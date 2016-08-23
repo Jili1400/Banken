@@ -18,6 +18,10 @@
     <div class="header">
       <a href="index.aspx"><asp:Label ID="logo" runat="server" Text="Le Banc Fiffle"></asp:Label></a>
     </div>
+        <div class="topnav">
+            <asp:LinkButton ID="loggin" runat="server" OnClick="loggin_Click">Logga in</asp:LinkButton>
+            <asp:LinkButton ID="loggout" runat="server" OnClick="loggout_Click">Logga ut</asp:LinkButton>
+            </div>
              <div class="nav">
                    <ul class="clearfix">
                         <li><a href="index.aspx">Hem</a></li>
