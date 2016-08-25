@@ -21,7 +21,7 @@ namespace Le_Banc
                  //string namn = "firstName" + " " + "lastName";
 
                  ddlPersonal.DataValueField = "idPersonnel";
-                 ddlPersonal.DataTextField = "firstName" + "" + "lastName";
+                 ddlPersonal.DataTextField = "firstName";
                  ddlPersonal.DataSource = personnelList;
                  ddlPersonal.DataBind();
 

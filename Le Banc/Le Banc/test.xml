@@ -50,7 +50,7 @@
     </rightanswers>
     <amountofrightanswers>2</amountofrightanswers>
     <group>Ekonomi</group>
-  </testquestion>
+  </testquestion>-->
   
 <testquestion id="4">
     <nr>4</nr>
@@ -75,7 +75,7 @@
     <answers>
        <answer>Slå om man blir arg</answer>
        <answer>Reta</answer>
-       <answer>Vara snäll.</answer>
+       <answer>Vara snäll</answer>
     </answers>
     <rightanswers>
       <rightanswer>Vara snäll</rightanswer>
@@ -100,7 +100,7 @@
     <group>Produkter och hantering</group>
   </testquestion>
 
-<testquestion id="7">
+<!--<testquestion id="7">
     <nr>7</nr>
     <question>Vad heter Bamses barn</question>
     <amountofanswers>6</amountofanswers>

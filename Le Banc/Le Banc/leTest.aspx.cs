@@ -322,52 +322,55 @@ namespace Le_Banc
             int sumEtik = 0;
             int sumProdukter= 0;
 
-            //Radiobuttoncheck(sumTotal, sumEkonomi, sumEtik, sumProdukter);
+            Radiobuttoncheck(sumTotal, sumEkonomi, sumEtik, sumProdukter);
+             
+            sumTotal = Radiobuttoncheck1(sumTotal, sumEkonomi, sumEtik, sumProdukter, out sumEkonomi, out sumEtik, out sumProdukter);
+
 
             //List<CollectedAnswer> listhamtadeSvar = new List<CollectedAnswer>();
             //listhamtadeSvar = CollectAnswers();
             //List<RightAnswer> listRattaSvaren = new List<RightAnswer>();
 
             //List<TheTest> listtestet = Session["listthistest"] as List<TheTest>;
-            //List<Question> listQuestion = FillQuestionFromXmlTest();
+           // List<Question> listQuestion = FillQuestionFromXmlTest();
 
             //foreach (Question questionitem in listQuestion)
             //{
             //    int g = 0;
-                //foreach (TheTest thetestitem in listtestet)
-                //{
-                    //for (int i = 0; i < questionitem.AmountOfRightAnswers ; i++)
-                    //{
-                        //foreach (RightAnswer rightansweritem in questionitem.ListRightAnswer)
-                        //{
-                        //    foreach (TheTest testitem in listtestet)
-                        //    {
-                        //        if (testitem.ToString()==rightansweritem.ToString())
-                        //        {
-                        //            g++;
-                        //            //if (i==questionitem.AmountOfRightAnswers)
-                        //            //{
-                        //                if (g==questionitem.AmountOfRightAnswers)
-                        //                {
-                        //                    sumTotal++;
-                        //                     if (questionitem.Group=="Produkter och hantering")
-                        //                     {
-                        //                         sumProdukter++;
-                        //                     }
-                        //                     else if (questionitem.Group == "Ekonomi")
-                        //                     {
-                        //                         sumEkonomi++;
-                        //                     }
-                        //                     else if (questionitem.Group == "Etik")
-                        //                     {
-                        //                         sumEtik++;
-                        //                     }
-                        //                //}
-                        //            }
-                        //        } 
-                        //    }
-                        //}
-                    //}
+            //    foreach (TheTest thetestitem in listtestet)
+            //    {
+            //        for (int i = 0; i < questionitem.AmountOfRightAnswers ; i++)
+            //        {
+            //            foreach (RightAnswer rightansweritem in questionitem.ListRightAnswer)
+            //            {
+            //                foreach (TheTest testitem in listtestet)
+            //                {
+            //                    if (testitem.ToString()==rightansweritem.ToString())
+            //                    {
+            //                        g++;
+            //                        //if (i==questionitem.AmountOfRightAnswers)
+            //                        //{
+            //                            if (g==questionitem.AmountOfRightAnswers)
+            //                            {
+            //                                sumTotal++;
+            //                                 if (questionitem.Group=="Produkter och hantering")
+            //                                 {
+            //                                     sumProdukter++;
+            //                                 }
+            //                                 else if (questionitem.Group == "Ekonomi")
+            //                                 {
+            //                                     sumEkonomi++;
+            //                                 }
+            //                                 else if (questionitem.Group == "Etik")
+            //                                 {
+            //                                     sumEtik++;
+            //                                 }
+            //                            //}
+            //                        }
+            //                    } 
+            //                }
+            //            }
+            //        }
 
                     //if (questionitem.Id == thetestitem.questionId)
                     //{
@@ -413,10 +416,11 @@ namespace Le_Banc
             ////double product=sumProdukter/
             //if (sumTotal/listQuestion.Count> 0.7)
             //{
-            //    Label1.Text = "Summa: "+sumTotal+" summaEtik: "+sumEtik+" summa Ekonomi: " +sumEkonomi+ " summa produkter: "+sumProdukter;
-            //    Label1.Visible= true;
+            Label1.Text = "Summa: " + sumTotal + " summaEtik: " + sumEtik + " summa Ekonomi: " + sumEkonomi + " summa produkter: " + sumProdukter;
+            Label1.Visible = true;
             //} 
         }
+            
 
 
         /// <summary>
@@ -430,29 +434,37 @@ namespace Le_Banc
 
                 if (control is RadioButton)
                 {
-                    RadioButton radioknapp = new RadioButton();
-                    if (radioknapp.Checked==true)
+                    
+                    RadioButton radio = new RadioButton();
+                    radio = (RadioButton)control;
+                    //radioknapp.ID = control.ID;
+                    //radioknapp.Text = control.ToString();
+                    if (radio.Checked==true)
                     {
                         foreach (Question xmlquestion in xmlQuestionList)
 	                    {
-		                    if (xmlquestion.Id.ToString()==radioknapp.ID)
+		                    if (xmlquestion.Id.ToString()==radio.GroupName)
                             {
-                                if (xmlquestion.RightAnswer==radioknapp.Text)
+                                foreach (RightAnswer rightAnswer in xmlquestion.ListRightAnswer)
                                 {
-                                     sumTotal++;
-                                             if (xmlquestion.Group=="Produkter och hantering")
-                                             {
-                                                 sumProdukter++;
-                                             }
-                                             else if (xmlquestion.Group == "Ekonomi")
-                                             {
-                                                 sumEkonomi++;
-                                             }
-                                             else if (xmlquestion.Group == "Etik")
-                                             {
-                                                 sumEtik++;
-                                             }
+                                    if (rightAnswer.RattSvar == radio.Text)
+                                    {
+                                        sumTotal++;
+                                        if (xmlquestion.Group == "Produkter och hantering")
+                                        {
+                                            sumProdukter++;
+                                        }
+                                        else if (xmlquestion.Group == "Ekonomi")
+                                        {
+                                            sumEkonomi++;
+                                        }
+                                        else if (xmlquestion.Group == "Etik")
+                                        {
+                                            sumEtik++;
+                                        }
+                                        }
                                 }
+                               
                             }
                         }
                     }
@@ -460,6 +472,60 @@ namespace Le_Banc
             }
 
         }
+
+
+        private int Radiobuttoncheck1(int sumTotal, int sumEkonomi, int sumEtik, int sumProdukter, out int sumekonomi, out int sumetik, out int sumprodukter)
+        {
+            foreach (Control control in PlaceHolderQuestions.Controls)
+            {
+                List<Question> xmlQuestionList = FillQuestionFromXmlTest();
+
+                if (control is RadioButton)
+                {
+
+                    RadioButton radio = new RadioButton();
+                    radio = (RadioButton)control;
+                    //radioknapp.ID = control.ID;
+                    //radioknapp.Text = control.ToString();
+                    if (radio.Checked == true)
+                    {
+                        foreach (Question xmlquestion in xmlQuestionList)
+                        {
+                            if (xmlquestion.Id.ToString() == radio.GroupName)
+                            {
+                                foreach (RightAnswer rightAnswer in xmlquestion.ListRightAnswer)
+                                {
+                                    if (rightAnswer.RattSvar == radio.Text)
+                                    {
+                                        sumTotal++;
+                                        if (xmlquestion.Group == "Produkter och hantering")
+                                        {
+                                            sumProdukter++;
+                                        }
+                                        else if (xmlquestion.Group == "Ekonomi")
+                                        {
+                                            sumEkonomi++;
+                                        }
+                                        else if (xmlquestion.Group == "Etik och regelverk")
+                                        {
+                                            sumEtik++;
+                                        }
+                                    }
+                                }
+
+                            }
+                            }
+                    }
+                }
+            }
+            sumekonomi = sumEkonomi;
+            sumetik = sumEtik;
+            sumprodukter = sumProdukter;
+
+            return sumTotal;
+
+        }
+
 
         /// <summary>
         /// Metod som hämtar hem vilka radiobuttons och checkboxar som är ifyllda.

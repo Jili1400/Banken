@@ -39,9 +39,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Npgsql, Version=2.2.4.3, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\dsu_team5\DSU_g5\Npgsql.dll</HintPath>
+    <Reference Include="Npgsql">
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2013\Projects\DistribueradSU\GolfBokning\Npgsql.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -61,6 +60,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Le Banc.dll" />
+    <Content Include="bin\Le Banc.pdb" />
+    <Content Include="bin\Mono.Security.dll" />
     <Content Include="CSS\admin.css" />
     <Content Include="CSS\index.css" />
     <Content Include="CSS\personal.css" />
@@ -85,7 +87,6 @@
     <Content Include="kompetensportalen.aspx" />
     <Content Include="loggin.aspx" />
     <Content Include="admin.aspx" />
-    <Content Include="personal.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Answer.cs" />
@@ -138,16 +139,10 @@
     <Compile Include="admin.aspx.designer.cs">
       <DependentUpon>admin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="personal.aspx.cs">
-      <DependentUpon>personal.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="personal.aspx.designer.cs">
-      <DependentUpon>personal.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="LeBanc.Master" />
+    <Content Include="bin\Le Banc.dll.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
